@@ -37,6 +37,17 @@ public class GarcomController {
     }
 
     /**
+    *  Get com a funcionalidade de encontrar determinado atributo
+    *  Estes atributos são definidos pela annotation @ResquestParam
+    *  Use: /find?nome='nome garcom'
+    */
+    @GetMapping(path = "/find")
+    public ResponseEntity<List<GarcomModel>> findByNome(@RequestParam(required = false) String nome) {
+        return ResponseEntity.ok(garcomService.findByNome(nome));
+
+    }
+
+    /**
      * Obtém um garçom pelo ID.
      *
      * @param id ID do garçom.

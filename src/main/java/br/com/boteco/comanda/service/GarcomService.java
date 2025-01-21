@@ -31,6 +31,11 @@ public class GarcomService {
         return garcom.toDTO();
     }
 
+    @Transactional
+    public List<GarcomModel> findByNome(String nome){
+        return garcomRepository.findByNome(nome);
+    }
+
     @Transactional(readOnly = true)
     public List<GarcomDTO> obterTodos(){
         List<GarcomModel> garcons = garcomRepository.findAll();
